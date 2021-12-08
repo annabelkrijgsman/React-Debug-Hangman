@@ -47,7 +47,11 @@ class AppContainer extends React.Component {
       this.state.currentChosenLetter
     );
     if (inputGiven && newLetter) {
-      const newGuessedLetters = [...this.state.guesedLetters];
+      // BUG FIX
+      // event.preventDefault(); bovenaan functie gezet zodat ik de foutmelding kon zien
+      // Deze gaf de typo in [...this.state.guesedLetters] aan
+      // Veranderd naar [...this.state.guessedLetters]
+      const newGuessedLetters = [...this.state.guessedLetters];
       newGuessedLetters.push(this.state.currentChosenLetter);
       this.setState({
         guessedLetters: newGuessedLetters
