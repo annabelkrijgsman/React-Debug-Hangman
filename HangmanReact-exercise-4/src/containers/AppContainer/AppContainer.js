@@ -42,12 +42,17 @@ class AppContainer extends React.Component {
   };
 
   guessLetterHandler = event => {
-    const newGuessedLetters = [...this.state.guessedLetters];
-    newGuessedLetters.push(this.state.currentChosenLetter);
-    this.setState({
-      guessedLetters: newGuessedLetters,
-      currentChosenLetter: ""
-    });
+    // BUG FIX
+    // Er werd niet gecontroleerd of de current chosen letter groter dan 0 was
+    // If statement toegevoegd
+    if (this.state.currentChosenLetter.length > 0) {
+      const newGuessedLetters = [...this.state.guessedLetters];
+      newGuessedLetters.push(this.state.currentChosenLetter);
+      this.setState({
+        guessedLetters: newGuessedLetters,
+        currentChosenLetter: ""
+      });
+    }
     event.preventDefault();
   };
 
