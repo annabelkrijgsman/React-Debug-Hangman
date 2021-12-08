@@ -1,14 +1,5 @@
 // This is basically a layout component
 
-// BUG FIX
-// Ik heb eerst in App.js gecheckt of wordGuessed een true of false returned. Deze returned een true.
-// Vervolgens heb ik in GameOver.js gecheckt of props.wordGuessed true of false was. Deze was undefined.
-// Daarna heb ik props ge-concole.logged hierin ontdekte ik de typo wordGuesed (met 1 s) in de component GameOver in App.js:
-// <GameOver chosenWord={game.chosenWord} wordGuesed={wordWasGuessed} />
-
-// Deze heb ik aangepast naar:
-// <GameOver chosenWord={game.chosenWord} wordGuessed={wordWasGuessed} />
-
 import React from "react";
 import "./App.css";
 import ChosenWord from "../ChosenWord/ChosenWord";
