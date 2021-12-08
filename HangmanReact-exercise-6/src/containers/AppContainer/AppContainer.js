@@ -42,8 +42,14 @@ class AppContainer extends React.Component {
   };
 
   guessLetterHandler = event => {
+    // BUG FIX
+    // Er werd niet gecontroleerd of de ingevoerde letter al in de currentChosenletter
+    // bestond. 
     const inputGiven = this.state.currentChosenLetter.length > 0;
-    if (inputGiven) {
+    const newLetter = !this.state.guessedLetters.includes(
+      this.state.currentChosenLetter
+    )
+    if (inputGiven && newLetter) {
       const newGuessedLetters = [...this.state.guessedLetters];
       newGuessedLetters.push(this.state.currentChosenLetter);
       this.setState({
